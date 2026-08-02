@@ -21,3 +21,6 @@ Flutter (ver [`adr/0001-escolha-stack.md`](./adr/0001-escolha-stack.md) para a j
 
 ## Status
 🚧 Fase 0 — Specs em validação (ver `04-migration-plan.md`)
+=======
+# comparador
+Projeto APP Comparador de Preços!
