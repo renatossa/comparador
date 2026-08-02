@@ -17,9 +17,10 @@ apps em paralelo — é uma reescrita, não uma migração incremental de sistem
 - [x] RN10 (validação de valores negativos) — confirmado: reescrita valida e impede negativos
 
 ## Fase 1 — Setup do projeto
-- Scaffold do projeto Flutter
-- Configuração de lint, testes, CI básico
-- Estrutura de pastas (a definir em ADR técnico)
+- [x] ADR 0003 (estrutura de pastas: layer-first) — aceito
+- [ ] Instalar Flutter SDK
+- [ ] Scaffold do projeto Flutter
+- [ ] Configuração de lint, testes, CI básico
 
 ## Fase 2 — Implementação do MVP
 - Modelo de domínio (Item, Comparação) com testes unitários das regras RN01–RN10
