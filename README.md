@@ -20,4 +20,4 @@ Architecture Decision Records.
 Flutter (ver [`adr/0001-escolha-stack.md`](./adr/0001-escolha-stack.md) para a justificativa)
 
 ## Status
-🚧 Fase 0 — Specs em validação (ver `04-migration-plan.md`)
+✅ Fase 0 concluída — pronto para iniciar Fase 1 (ver `04-migration-plan.md`)

@@ -3,10 +3,18 @@
 Estratégia: **rewrite completo**, guiado pelas specs (não há necessidade de rodar os dois
 apps em paralelo — é uma reescrita, não uma migração incremental de sistema em produção).
 
-## Fase 0 — Specs (atual)
+## Fase 0 — Specs
 - [x] Extrair comportamento do legado
-- [ ] Validar `01-domain-model.md` e `02-features/comparar-precos.md` com você
-- [ ] Resolver as "decisões pendentes" marcadas nas specs (empate, item inválido, remoção de item)
+- [x] Validar `01-domain-model.md` e `02-features/comparar-precos.md` com você
+- [x] Repo `comparador` criado no GitHub com specs, ADRs e README
+- [x] `CLAUDE.md` criado com workflow de SDD para o Claude Code seguir
+- [x] RN06 (adicionar itens sem limite) — confirmado
+- [x] RN09 (remover item individual) — aprovado como feature nova, spec criada
+- [x] ADR 0001 (stack: Flutter) — aceito
+- [x] ADR 0002 (state management: Provider/ChangeNotifier) — aceito
+- [x] RN04 (empate entre melhores) — confirmado: múltiplos itens podem ser destacados como
+      "melhor" simultaneamente
+- [x] RN10 (validação de valores negativos) — confirmado: reescrita valida e impede negativos
 
 ## Fase 1 — Setup do projeto
 - Scaffold do projeto Flutter
@@ -14,7 +22,7 @@ apps em paralelo — é uma reescrita, não uma migração incremental de sistem
 - Estrutura de pastas (a definir em ADR técnico)
 
 ## Fase 2 — Implementação do MVP
-- Modelo de domínio (Item, Comparação) com testes unitários das regras RN01–RN08
+- Modelo de domínio (Item, Comparação) com testes unitários das regras RN01–RN10
 - Tela de comparação (UI nova)
 - Persistência local
 - Testes de widget/integração cobrindo os cenários de `02-features/comparar-precos.md`

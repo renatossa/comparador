@@ -55,10 +55,14 @@ reescrita: storage local nativo — ver `03-non-functional.md`).
 O usuário pode remover um item específico da lista de comparação (feature nova, decidida para
 a reescrita — ver `02-features/remover-item.md`).
 
+**RN10 — Validação de valores negativos (NOVO, não existia no legado)**
+Quantidade e preço não podem ser negativos. O app deve impedir/rejeitar a entrada de valores
+negativos nesses campos.
+
 ## Decisões confirmadas
 - ✅ RN06: sem limite de itens adicionados, mantido como no legado
 - ✅ RN09: remoção individual de item é uma feature nova, aprovada para o MVP
-
-## Perguntas ainda em aberto
-- RN04 (empate entre melhores) e validação de valores negativos — ver
-  `02-features/comparar-precos.md`
+- ✅ RN04 (empate): quando dois ou mais itens válidos empatam no menor `valorPorUnidade`,
+  todos recebem o destaque "melhor opção" simultaneamente
+- ✅ RN10: valores negativos de quantidade/preço são validados e impedidos (diferente do
+  legado, que não tratava)

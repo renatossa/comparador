@@ -52,12 +52,14 @@ Cenário: Empate entre dois itens
   Dado que dois itens têm exatamente o mesmo valor por unidade
   E são os menores valores da lista
   Então ambos devem ser destacados como "melhor opção"
-  [DECISÃO PENDENTE: confirmar se este é o comportamento desejado — o app legado
-  tecnicamente permite múltiplos "melhores" simultâneos por como itera a lista]
+
+Cenário: Impedir valor negativo
+  Dado que a tela de comparação está aberta
+  Quando eu tento preencher a quantidade ou o preço de um item com um valor negativo
+  Então o app deve impedir/rejeitar a entrada (ver RN10)
 ```
 
 ## Edge cases a cobrir em testes
-- Quantidade ou preço negativo (app legado não trata — decidir se a reescrita deve validar)
 - Apenas 1 item preenchido (não há "pior" nem "melhor" a exibir, ou exibe neutro)
 - Todos os itens com o mesmo valor por unidade
 - Valores decimais com muitas casas (o legado usava máscara de 4 casas)
