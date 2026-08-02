@@ -18,9 +18,14 @@ apps em paralelo — é uma reescrita, não uma migração incremental de sistem
 
 ## Fase 1 — Setup do projeto
 - [x] ADR 0003 (estrutura de pastas: layer-first) — aceito
-- [ ] Instalar Flutter SDK
-- [ ] Scaffold do projeto Flutter
-- [ ] Configuração de lint, testes, CI básico
+- [x] Instalar Flutter SDK (via snap, `flutter doctor` ok)
+- [ ] **Instalar Android SDK/Android Studio** — `flutter doctor` acusa toolchain Android
+      ausente; necessário para rodar em emulador/dispositivo Android. Enquanto isso, dev via
+      `flutter run -d chrome`
+- [x] Scaffold do projeto Flutter (estrutura `lib/{models,screens}` conforme ADR 0003,
+      `provider` adicionado conforme ADR 0002)
+- [x] Configuração de lint (flutter_lints, já no template) e CI básico (GitHub Actions:
+      `flutter analyze` + `flutter test`)
 
 ## Fase 2 — Implementação do MVP
 - Modelo de domínio (Item, Comparação) com testes unitários das regras RN01–RN10
