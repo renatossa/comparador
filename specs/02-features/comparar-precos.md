@@ -5,7 +5,11 @@ O usuário está no mercado, com dois ou mais produtos parecidos em embalagens d
 quer saber qual compensa mais pelo preço.
 
 ## Comportamento esperado
-1. Tela abre com 3 campos de comparação vazios (quantidade + preço)
+1. Tela abre com 3 campos de comparação vazios (quantidade + preço). O campo de quantidade
+   deixa claro, via label/texto auxiliar, que se trata da quantidade em uma unidade de medida
+   (ex: g, ml, kg, litros) — o app não fixa nem faz o usuário escolher uma unidade específica,
+   só comunica que o número digitado ali representa uma medida, para reduzir a confusão em
+   relação a só "quantidade" (poderia soar como "quantos itens")
 2. Ao preencher quantidade e preço de um item, o app calcula e exibe o valor por unidade
 3. Conforme mais itens são preenchidos, o app destaca visualmente:
    - a melhor opção (menor valor por unidade)

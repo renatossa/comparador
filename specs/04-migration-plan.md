@@ -28,10 +28,16 @@ apps em paralelo — é uma reescrita, não uma migração incremental de sistem
       `flutter analyze` + `flutter test`)
 
 ## Fase 2 — Implementação do MVP
-- Modelo de domínio (Item, Comparação) com testes unitários das regras RN01–RN10
-- Tela de comparação (UI nova)
-- Persistência local
-- Testes de widget/integração cobrindo os cenários de `02-features/comparar-precos.md`
+- [x] ADR 0004 (persistência: shared_preferences) — aceito
+- [x] Modelo de domínio (`Item`, `ComparacaoModel`) com testes unitários das regras RN01–RN10
+      (`test/models/`)
+- [x] Tela de comparação (`ComparacaoScreen` + `ItemCard`), com destaque melhor/pior reforçado
+      por ícone/texto (acessibilidade) e suporte a tema claro/escuro
+- [x] Persistência local (`StorageService`, RN08) — carrega ao abrir o app, salva a cada mutação
+- [x] Testes de widget/integração cobrindo os cenários de `02-features/comparar-precos.md` e
+      `02-features/remover-item.md` (`test/screens/`, `test/services/`)
+- [ ] Verificação manual em dispositivo/emulador real — pendente até o Android SDK ser
+      instalado (ver Fase 1); `flutter build web` compila sem erros como checagem intermediária
 
 ## Fase 3 — Polimento
 - Ícone, splash, identidade visual
