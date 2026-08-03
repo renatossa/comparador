@@ -54,8 +54,16 @@ apps em paralelo — é uma reescrita, não uma migração incremental de sistem
       `03-non-functional.md`)
 
 ## Fase 4 — Publicação
-- Build de release Android (Play Store) + iOS (App Store)
-- Ficha da loja (descrição, screenshots, política de privacidade se necessário)
+- [ ] ⚠️ **BLOQUEIO**: conta de desenvolvedor Google Play ("5club") teve o perfil e todos os
+      apps removidos em 2024-11-08 por verificação de conta não concluída no prazo. Antes de
+      qualquer coisa: checar "Mais detalhes" no Play Console + e-mail vinculado à conta pra ver
+      se dá pra recuperar; se a remoção for definitiva, registrar conta de desenvolvedor nova
+      (bate com o lembrete abaixo de não reusar identidade antiga)
+- [ ] Build de release Android (Play Store) + iOS (App Store)
+- [ ] App ID/bundle ID próprio (ver aviso em `03-non-functional.md` — não usar o antigo, que
+      está sob conta de amigo)
+- [ ] Ficha da loja (descrição — reaproveitar/adaptar `textos/descricao.txt` do legado, ver nota
+      em `00-overview.md` —, screenshots, política de privacidade se necessário)
 
 ## Rastreabilidade
 Cada PR de implementação deve referenciar a spec (`02-features/*.md`) e as regras de negócio
