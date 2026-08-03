@@ -57,10 +57,21 @@ class _ItemCardState extends State<ItemCard> {
   @override
   Widget build(BuildContext context) {
     final item = widget.item;
-    final corDestaque = switch (item.status) {
-      ItemStatus.melhor => Colors.green,
-      ItemStatus.pior => Colors.red,
-      ItemStatus.neutro => null,
+    final scheme = Theme.of(context).colorScheme;
+
+    // Cada card já nasce com um banho de cor — azul neutro por padrão,
+    // verde/vermelho quando o destaque é calculado (identidade visual v2,
+    // ver specs/04-migration-plan.md Fase 3).
+    final corCard = switch (item.status) {
+      ItemStatus.melhor => Color.alphaBlend(
+        Colors.green.withValues(alpha: 0.16),
+        scheme.surface,
+      ),
+      ItemStatus.pior => Color.alphaBlend(
+        Colors.red.withValues(alpha: 0.16),
+        scheme.surface,
+      ),
+      ItemStatus.neutro => scheme.primaryContainer,
     };
 
     final formato = NumberFormat.currency(
@@ -70,7 +81,7 @@ class _ItemCardState extends State<ItemCard> {
     );
 
     return Card(
-      color: corDestaque?.withValues(alpha: 0.12),
+      color: corCard,
       child: Padding(
         padding: const EdgeInsets.all(12),
         child: Column(

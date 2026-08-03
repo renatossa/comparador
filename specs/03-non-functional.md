@@ -15,9 +15,14 @@
 
 ## UI / UX
 - Modernizar visualmente mantendo a simplicidade original (formulário direto, sem fricção)
-- Suporte a tema claro/escuro (não existia no legado — a validar se entra no MVP)
+- ✅ Suporte a tema claro/escuro — entra no MVP (`ThemeMode.system`)
 - Acessibilidade básica: contraste adequado nos destaques de cor (o legado usa só cor para
-  indicar melhor/pior — considerar reforçar com ícone/texto para acessibilidade)
+  indicar melhor/pior — reforçado com ícone + texto no selo "Melhor/Pior opção", não só cor)
+- ✅ Identidade visual (decidido em 2026-08-03, Fase 3): azul do ícone do app legado (`#1E9BD7`)
+  como cor-semente da paleta, para manter reconhecível pra quem já usava o app antigo. Marca
+  (check) reaparece na AppBar. Cada card da comparação já nasce com um leve banho de cor —
+  azul (neutro), verde (melhor), vermelho (pior) — em vez de só um selo colorido, pra não ficar
+  visualmente "seco"/genérico demais em cima do Material padrão
 
 ## Internacionalização
 - MVP em pt-BR, mas manter estrutura pronta para i18n futura (textos da interface continuam

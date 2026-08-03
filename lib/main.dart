@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'app_theme.dart';
 import 'models/comparacao_model.dart';
 import 'screens/comparacao_screen.dart';
 
@@ -24,9 +25,9 @@ class ComparadorApp extends StatelessWidget {
       value: comparacaoModel,
       child: MaterialApp(
         title: 'Comparador de Preços',
-        theme: ThemeData(colorSchemeSeed: Colors.teal, useMaterial3: true),
+        theme: ThemeData(colorSchemeSeed: brandBlue, useMaterial3: true),
         darkTheme: ThemeData(
-          colorSchemeSeed: Colors.teal,
+          colorSchemeSeed: brandBlue,
           brightness: Brightness.dark,
           useMaterial3: true,
         ),

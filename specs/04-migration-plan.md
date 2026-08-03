@@ -41,9 +41,14 @@ apps em paralelo — é uma reescrita, não uma migração incremental de sistem
       a moeda pelo locale do idioma (não confiável: idioma≠país, ver `03-non-functional.md`)
 
 ## Fase 3 — Polimento
-- Ícone, splash, identidade visual
-- Revisão de acessibilidade
-- Testes em dispositivos reais Android e iOS
+- [x] Identidade visual em código: paleta com semente azul do ícone legado (`#1E9BD7`,
+      `lib/app_theme.dart`), marca (check) na AppBar, cards com banho de cor (azul/verde/
+      vermelho) em vez de destaque só no selo — validado com você em screenshots do emulador
+- [ ] Ícone do app (launcher icon) e splash screen — ainda usando os padrões do `flutter create`,
+      falta gerar os assets reais a partir da marca
+- [ ] Revisão de acessibilidade (além do ícone+texto já feito no destaque melhor/pior)
+- [ ] Testes em dispositivos reais Android e iOS (iOS depende de Mac — ver
+      `03-non-functional.md`)
 
 ## Fase 4 — Publicação
 - Build de release Android (Play Store) + iOS (App Store)

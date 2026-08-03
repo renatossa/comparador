@@ -10,9 +10,26 @@ class ComparacaoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Comparador de Preços'),
+        shape: Border(bottom: BorderSide(color: scheme.primary, width: 3)),
+        title: Row(
+          children: [
+            Container(
+              width: 26,
+              height: 26,
+              decoration: BoxDecoration(
+                color: scheme.primary,
+                borderRadius: BorderRadius.circular(7),
+              ),
+              child: const Icon(Icons.check, color: Colors.white, size: 16),
+            ),
+            const SizedBox(width: 10),
+            const Text('Comparador de Preços'),
+          ],
+        ),
         actions: [
           Consumer<ComparacaoModel>(
             builder: (context, model, _) => PopupMenuButton<Moeda>(
@@ -35,16 +52,19 @@ class ComparacaoScreen extends StatelessWidget {
                   children: [
                     Text(
                       model.moeda.simbolo,
-                      style: Theme.of(context).textTheme.titleMedium,
+                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        color: scheme.primary,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                    const Icon(Icons.arrow_drop_down),
+                    Icon(Icons.arrow_drop_down, color: scheme.primary),
                   ],
                 ),
               ),
             ),
           ),
           IconButton(
-            icon: const Icon(Icons.refresh),
+            icon: Icon(Icons.refresh, color: scheme.primary),
             tooltip: 'Limpar',
             onPressed: () => context.read<ComparacaoModel>().limpar(),
           ),
@@ -80,6 +100,8 @@ class ComparacaoScreen extends StatelessWidget {
         },
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: scheme.primary,
+        foregroundColor: scheme.onPrimary,
         onPressed: () => context.read<ComparacaoModel>().adicionarItem(),
         tooltip: 'Adicionar item',
         child: const Icon(Icons.add),
