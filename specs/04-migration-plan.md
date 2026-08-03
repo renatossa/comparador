@@ -19,9 +19,8 @@ apps em paralelo — é uma reescrita, não uma migração incremental de sistem
 ## Fase 1 — Setup do projeto
 - [x] ADR 0003 (estrutura de pastas: layer-first) — aceito
 - [x] Instalar Flutter SDK (via snap, `flutter doctor` ok)
-- [ ] **Instalar Android SDK/Android Studio** — `flutter doctor` acusa toolchain Android
-      ausente; necessário para rodar em emulador/dispositivo Android. Enquanto isso, dev via
-      `flutter run -d chrome`
+- [x] Instalar Android SDK/Android Studio + emulador (Pixel_Comparador, API 36.1) —
+      `flutter doctor` sem problemas
 - [x] Scaffold do projeto Flutter (estrutura `lib/{models,screens}` conforme ADR 0003,
       `provider` adicionado conforme ADR 0002)
 - [x] Configuração de lint (flutter_lints, já no template) e CI básico (GitHub Actions:
@@ -36,8 +35,10 @@ apps em paralelo — é uma reescrita, não uma migração incremental de sistem
 - [x] Persistência local (`StorageService`, RN08) — carrega ao abrir o app, salva a cada mutação
 - [x] Testes de widget/integração cobrindo os cenários de `02-features/comparar-precos.md` e
       `02-features/remover-item.md` (`test/screens/`, `test/services/`)
-- [ ] Verificação manual em dispositivo/emulador real — pendente até o Android SDK ser
-      instalado (ver Fase 1); `flutter build web` compila sem erros como checagem intermediária
+- [x] Verificação manual no emulador Android — validado alinhamento dos campos, separador
+      decimal (`,`/`.`), seletor de moeda (R$/€/$) e teclado físico funcionando
+- [x] Seletor manual de moeda (R$ padrão, € em seguida) — substituiu a ideia inicial de inferir
+      a moeda pelo locale do idioma (não confiável: idioma≠país, ver `03-non-functional.md`)
 
 ## Fase 3 — Polimento
 - Ícone, splash, identidade visual

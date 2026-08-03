@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:intl/intl.dart';
 
 import '../models/item.dart';
+import '../models/moeda.dart';
 
 class ItemCard extends StatefulWidget {
   const ItemCard({
     super.key,
     required this.item,
     required this.index,
+    required this.moeda,
     required this.onQuantidadeChanged,
     required this.onPrecoChanged,
     required this.onRemover,
@@ -15,6 +18,7 @@ class ItemCard extends StatefulWidget {
 
   final Item item;
   final int index;
+  final Moeda moeda;
   final ValueChanged<double?> onQuantidadeChanged;
   final ValueChanged<double?> onPrecoChanged;
   final VoidCallback onRemover;
@@ -27,9 +31,7 @@ class _ItemCardState extends State<ItemCard> {
   late final TextEditingController _quantidadeController;
   late final TextEditingController _precoController;
 
-  static final _apenasNumeros = FilteringTextInputFormatter.allow(
-    RegExp(r'[0-9.]'),
-  );
+  static final _decimalFormatter = _DecimalInputFormatter();
 
   @override
   void initState() {
@@ -49,6 +51,9 @@ class _ItemCardState extends State<ItemCard> {
     super.dispose();
   }
 
+  double? _parseDecimal(String texto) =>
+      double.tryParse(texto.replaceAll(',', '.'));
+
   @override
   Widget build(BuildContext context) {
     final item = widget.item;
@@ -57,6 +62,12 @@ class _ItemCardState extends State<ItemCard> {
       ItemStatus.pior => Colors.red,
       ItemStatus.neutro => null,
     };
+
+    final formato = NumberFormat.currency(
+      locale: Localizations.localeOf(context).toString(),
+      symbol: widget.moeda.simbolo,
+      decimalDigits: 4,
+    );
 
     return Card(
       color: corDestaque?.withValues(alpha: 0.12),
@@ -85,6 +96,7 @@ class _ItemCardState extends State<ItemCard> {
               ],
             ),
             Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
                   child: TextField(
@@ -92,13 +104,13 @@ class _ItemCardState extends State<ItemCard> {
                     keyboardType: const TextInputType.numberWithOptions(
                       decimal: true,
                     ),
-                    inputFormatters: [_apenasNumeros],
+                    inputFormatters: [_decimalFormatter],
                     decoration: const InputDecoration(
                       labelText: 'Quantidade',
                       helperText: 'em g, ml, kg, litros...',
                     ),
                     onChanged: (texto) =>
-                        widget.onQuantidadeChanged(double.tryParse(texto)),
+                        widget.onQuantidadeChanged(_parseDecimal(texto)),
                   ),
                 ),
                 const SizedBox(width: 12),
@@ -108,10 +120,12 @@ class _ItemCardState extends State<ItemCard> {
                     keyboardType: const TextInputType.numberWithOptions(
                       decimal: true,
                     ),
-                    inputFormatters: [_apenasNumeros],
-                    decoration: const InputDecoration(labelText: 'Preço (R\$)'),
+                    inputFormatters: [_decimalFormatter],
+                    decoration: InputDecoration(
+                      labelText: 'Preço (${widget.moeda.simbolo})',
+                    ),
                     onChanged: (texto) =>
-                        widget.onPrecoChanged(double.tryParse(texto)),
+                        widget.onPrecoChanged(_parseDecimal(texto)),
                   ),
                 ),
               ],
@@ -119,7 +133,7 @@ class _ItemCardState extends State<ItemCard> {
             if (item.isValido) ...[
               const SizedBox(height: 8),
               Text(
-                'R\$ ${item.valorPorUnidade.toStringAsFixed(4)} / unidade',
+                '${formato.format(item.valorPorUnidade)} / unidade',
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
             ],
@@ -127,6 +141,23 @@ class _ItemCardState extends State<ItemCard> {
         ),
       ),
     );
+  }
+}
+
+/// Aceita dígitos com no máximo um separador decimal (`,` ou `.`), tratados
+/// como equivalentes — o teclado varia por região/dispositivo.
+class _DecimalInputFormatter extends TextInputFormatter {
+  @override
+  TextEditingValue formatEditUpdate(
+    TextEditingValue oldValue,
+    TextEditingValue newValue,
+  ) {
+    final texto = newValue.text;
+    if (texto.isEmpty) return newValue;
+
+    if (!RegExp(r'^\d*[.,]?\d*$').hasMatch(texto)) return oldValue;
+
+    return newValue;
   }
 }
 

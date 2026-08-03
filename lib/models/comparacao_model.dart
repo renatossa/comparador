@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 
 import '../services/storage_service.dart';
 import 'item.dart';
+import 'moeda.dart';
 
 class ComparacaoModel extends ChangeNotifier {
   ComparacaoModel({StorageService? storageService})
@@ -13,17 +14,30 @@ class ComparacaoModel extends ChangeNotifier {
 
   final StorageService _storage;
   final List<Item> itens = [];
+  Moeda moeda = Moeda.real;
 
-  /// Carrega os itens persistidos (RN08). Se não houver nada salvo, mantém o
-  /// estado inicial (RN05).
+  /// Carrega os itens e a moeda persistidos (RN08). Se não houver nada
+  /// salvo, mantém o estado inicial (RN05) e a moeda padrão.
   Future<void> carregar() async {
     final salvos = await _storage.carregar();
-    if (salvos.isEmpty) return;
+    if (salvos.isNotEmpty) {
+      itens
+        ..clear()
+        ..addAll(salvos);
+    }
 
-    itens
-      ..clear()
-      ..addAll(salvos);
+    final moedaSalva = await _storage.carregarMoeda();
+    if (moedaSalva != null) {
+      moeda = moedaSalva;
+    }
+
     _recalcularDestaques(persistir: false);
+  }
+
+  void selecionarMoeda(Moeda novaMoeda) {
+    moeda = novaMoeda;
+    notifyListeners();
+    unawaited(_storage.salvarMoeda(moeda));
   }
 
   void _resetarParaEstadoInicial() {

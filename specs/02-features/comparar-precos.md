@@ -67,3 +67,6 @@ Cenário: Impedir valor negativo
 - Apenas 1 item preenchido (não há "pior" nem "melhor" a exibir, ou exibe neutro)
 - Todos os itens com o mesmo valor por unidade
 - Valores decimais com muitas casas (o legado usava máscara de 4 casas)
+- ✅ Separador decimal: os campos de quantidade/preço aceitam tanto `,` quanto `.` como
+  separador decimal (varia por teclado/região), tratados como equivalentes; apenas um
+  separador é aceito por valor digitado

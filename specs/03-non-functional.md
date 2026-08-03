@@ -20,7 +20,15 @@
   indicar melhor/pior — considerar reforçar com ícone/texto para acessibilidade)
 
 ## Internacionalização
-- MVP em pt-BR, mas manter estrutura pronta para i18n futura
+- MVP em pt-BR, mas manter estrutura pronta para i18n futura (textos da interface continuam
+  fixos em pt-BR neste MVP)
+- ✅ Moeda exibida nos valores (preço, valor por unidade) é escolhida manualmente pelo usuário
+  num seletor na tela (R$ é o padrão, com € logo em seguida na lista) — não é inferida
+  automaticamente do locale do dispositivo. Decidido em 2026-08-03: locale mistura idioma e
+  região (ex: aparelho em inglês fisicamente em Portugal não indica corretamente o país), então
+  detecção automática não é confiável; escolha manual persiste entre sessões (RN08)
+  A formatação numérica (separador decimal) continua seguindo o locale do idioma do aparelho —
+  só o símbolo da moeda é manual
 
 ## Publicação
 - ⚠️ **LEMBRETE PARA A FASE 4**: o app ID atual usado no projeto (`com.rodenapps.comparador`

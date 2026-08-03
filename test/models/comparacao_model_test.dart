@@ -3,6 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:comparador/models/comparacao_model.dart';
 import 'package:comparador/models/item.dart';
+import 'package:comparador/models/moeda.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -180,6 +181,29 @@ void main() {
 
       expect(aceitou, isTrue);
       expect(model.itens[0].quantidade, 500);
+    });
+  });
+
+  group('Moeda — seleção manual (03-non-functional.md)', () {
+    test('padrão é Real', () {
+      final model = ComparacaoModel();
+      expect(model.moeda, Moeda.real);
+    });
+
+    test('selecionarMoeda troca a moeda ativa', () {
+      final model = ComparacaoModel();
+      model.selecionarMoeda(Moeda.euro);
+      expect(model.moeda, Moeda.euro);
+    });
+
+    test('moeda escolhida persiste entre sessões (RN08)', () async {
+      final model = ComparacaoModel();
+      model.selecionarMoeda(Moeda.euro);
+
+      final novoModel = ComparacaoModel();
+      await novoModel.carregar();
+
+      expect(novoModel.moeda, Moeda.euro);
     });
   });
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../models/comparacao_model.dart';
+import '../models/moeda.dart';
 import '../widgets/item_card.dart';
 
 class ComparacaoScreen extends StatelessWidget {
@@ -13,6 +14,35 @@ class ComparacaoScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Comparador de Preços'),
         actions: [
+          Consumer<ComparacaoModel>(
+            builder: (context, model, _) => PopupMenuButton<Moeda>(
+              tooltip: 'Escolher moeda',
+              initialValue: model.moeda,
+              onSelected: (moeda) =>
+                  context.read<ComparacaoModel>().selecionarMoeda(moeda),
+              itemBuilder: (context) => Moeda.values
+                  .map(
+                    (moeda) => PopupMenuItem(
+                      value: moeda,
+                      child: Text('${moeda.simbolo}  ${moeda.nome}'),
+                    ),
+                  )
+                  .toList(),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      model.moeda.simbolo,
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
+                    const Icon(Icons.arrow_drop_down),
+                  ],
+                ),
+              ),
+            ),
+          ),
           IconButton(
             icon: const Icon(Icons.refresh),
             tooltip: 'Limpar',
@@ -37,6 +67,7 @@ class ComparacaoScreen extends StatelessWidget {
                   key: ObjectKey(item),
                   item: item,
                   index: index,
+                  moeda: model.moeda,
                   onQuantidadeChanged: (valor) =>
                       model.atualizarQuantidade(index, valor),
                   onPrecoChanged: (valor) =>

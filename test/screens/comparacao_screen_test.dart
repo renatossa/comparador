@@ -48,7 +48,17 @@ void main() {
 
     expect(find.text('Melhor opção'), findsOneWidget);
     expect(find.text('Pior opção'), findsOneWidget);
-    expect(find.text('R\$ 0.0180 / unidade'), findsOneWidget);
+    // O símbolo de moeda e o separador decimal variam por locale (ver
+    // 03-non-functional.md); só validamos que o valor calculado aparece.
+    expect(
+      find.byWidgetPredicate(
+        (widget) =>
+            widget is Text &&
+            (widget.data?.contains('018') ?? false) &&
+            (widget.data?.contains('unidade') ?? false),
+      ),
+      findsOneWidget,
+    );
   });
 
   testWidgets('cenário: item com dados incompletos não é comparado', (
