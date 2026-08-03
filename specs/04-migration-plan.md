@@ -54,11 +54,13 @@ apps em paralelo — é uma reescrita, não uma migração incremental de sistem
       `03-non-functional.md`)
 
 ## Fase 4 — Publicação
-- [ ] ⚠️ **BLOQUEIO**: conta de desenvolvedor Google Play ("5club") teve o perfil e todos os
-      apps removidos em 2024-11-08 por verificação de conta não concluída no prazo. Antes de
-      qualquer coisa: checar "Mais detalhes" no Play Console + e-mail vinculado à conta pra ver
-      se dá pra recuperar; se a remoção for definitiva, registrar conta de desenvolvedor nova
-      (bate com o lembrete abaixo de não reusar identidade antiga)
+- [x] Decidido (2026-08-03): não tentar recuperar a conta antiga "5club" (perfil e apps
+      removidos em 2024-11-08 por verificação pendente; a conta também dependia de um colega
+      como admin). Em vez disso, registrar uma **conta de desenvolvedor Google Play nova e
+      independente**, tipo "Pessoal" (não "Organização" — evita a burocracia de D-U-N-S),
+      taxa única de US$ 25 + verificação de identidade própria. Fica dono único, sem depender
+      de mais ninguém
+- [ ] Registrar a conta nova em play.google.com/console/signup e completar verificação
 - [ ] Build de release Android (Play Store) + iOS (App Store)
 - [ ] App ID/bundle ID próprio (ver aviso em `03-non-functional.md` — não usar o antigo, que
       está sob conta de amigo)
