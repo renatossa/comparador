@@ -29,7 +29,8 @@ Cenário: Remover o item que era a melhor opção
 Cenário: Remover até restar 1 item
   Dado que existem 2 itens na comparação
   Quando eu removo 1 deles
-  Então deve restar 1 item sem nenhum destaque de cor (não há o que comparar)
+  Então deve restar 1 item sem nenhum destaque de cor (RN03A — confirmado em 2026-08-03 que é
+  intencional mesmo divergindo do app legado, ver nota em 01-domain-model.md)
 
 Cenário: Remoção persiste
   Dado que removi um item
@@ -43,4 +44,4 @@ Cenário: Remoção persiste
   intermediário incorreto sendo exibido
 
 ## Regra de negócio relacionada
-RN09 (`01-domain-model.md`)
+RN09, RN03A (`01-domain-model.md`)

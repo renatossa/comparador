@@ -38,6 +38,19 @@ válido recebe destaque "pior" (vermelho no app legado).
 > de forma explícita, e o destaque é recalculado a cada alteração de qualquer item da lista —
 > isso deve ser preservado (recomputar a lista inteira a cada mudança, não só o item editado).
 
+> **Divergência intencional do legado (confirmada em 2026-08-03):** encontramos o JS original
+> do app legado (`www/src/exato.js`, função `ehMenor`, no zip `5club-comparador_app-*.zip`) e
+> nele, com **apenas 1 item válido** na lista, esse item é destacado como "melhor" (verde) —
+> a função assume verde por padrão e só pinta de vermelho se achar outro item com valor menor,
+> sem checar se há itens suficientes para comparar. Na reescrita, decidimos propositalmente
+> **não seguir isso**: com menos de 2 itens válidos, nenhum destaque é exibido (ver RN03A
+> abaixo). Guardar essa nota para não reabrir a dúvida — já foi perguntado e decidido.
+
+**RN03A — Mínimo para destacar (NOVO, diferente do legado)**
+Destaque de "melhor"/"pior" só é calculado quando há **pelo menos 2 itens válidos**. Com 0 ou 1
+item válido, todos os itens ficam neutros (sem destaque), mesmo que o item isolado tenha um
+`valorPorUnidade` calculável.
+
 **RN05 — Estado inicial**
 Uma nova comparação começa com 3 itens vazios.
 
@@ -66,3 +79,5 @@ negativos nesses campos.
   todos recebem o destaque "melhor opção" simultaneamente
 - ✅ RN10: valores negativos de quantidade/preço são validados e impedidos (diferente do
   legado, que não tratava)
+- ✅ RN03A: com menos de 2 itens válidos, nenhum destaque é exibido — decisão tomada mesmo
+  sabendo que diverge do legado (que destacaria "melhor" para 1 item isolado), ver nota em RN04

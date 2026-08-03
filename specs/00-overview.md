@@ -9,6 +9,12 @@ Reescrita do app "Comparador" (`com.rodenapps.comparador`), originalmente feito 
 AngularJS + jQuery Mobile, com build documentado para WP8. O comportamento funcional desta
 spec foi extraído por engenharia reversa do código legado (repo `comparador-old`).
 
+> Encontrado em 2026-08-03: o zip `5club-comparador_app-*.zip` (`~/Downloads`) tem o código-fonte
+> completo do app legado (`www/src/exato.js` — controller AngularJS com a lógica de negócio
+> original, `www/index.html`, artwork do ícone em alta resolução) — fonte mais completa que o
+> repo `comparador-old` (que só tinha os artefatos buildados do WP8). Consultar esse zip antes
+> de assumir comportamento do legado por inferência/screenshot quando surgir dúvida.
+
 ## Objetivo da reescrita
 Reescrever do zero, mantendo o comportamento e a proposta de valor do app original,
 com stack moderna, UI atualizada e publicação nas lojas Android (Google Play) e iOS (App Store).

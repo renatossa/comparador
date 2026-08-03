@@ -64,7 +64,8 @@ Cenário: Impedir valor negativo
 ```
 
 ## Edge cases a cobrir em testes
-- Apenas 1 item preenchido (não há "pior" nem "melhor" a exibir, ou exibe neutro)
+- ✅ Apenas 1 item preenchido: não exibe "pior" nem "melhor", fica neutro (RN03A, decisão
+  confirmada em 2026-08-03 — diverge do legado de propósito, ver nota em `01-domain-model.md`)
 - Todos os itens com o mesmo valor por unidade
 - Valores decimais com muitas casas (o legado usava máscara de 4 casas)
 - ✅ Separador decimal: os campos de quantidade/preço aceitam tanto `,` quanto `.` como

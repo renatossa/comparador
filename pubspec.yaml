@@ -51,21 +51,21 @@ dev_dependencies:
   flutter_launcher_icons: ^0.14.4
   flutter_native_splash: ^2.4.8
 
-# Ícone e splash gerados a partir da marca do app legado (ver
-# comparador-old/platforms/wp8/ApplicationIcon.png) — specs/04-migration-plan.md Fase 3.
+# Ícone e splash gerados a partir do artwork fonte do app legado, achado em
+# 5club-comparador_app-*.zip (icones/check_1024*.png) — specs/04-migration-plan.md Fase 3.
 flutter_launcher_icons:
   android: true
   ios: true
   image_path: "assets/icon/icon.png"
-  adaptive_icon_background: "#218ABC"
+  adaptive_icon_background: "#00A7E0"
   adaptive_icon_foreground: "assets/icon/foreground.png"
 
 flutter_native_splash:
-  color: "#218ABC"
+  color: "#00A7E0"
   image: "assets/icon/foreground.png"
   android_12:
     image: "assets/icon/foreground.png"
-    icon_background_color: "#218ABC"
+    icon_background_color: "#00A7E0"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
