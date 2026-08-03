@@ -50,8 +50,13 @@ apps em paralelo — é uma reescrita, não uma migração incremental de sistem
       (Android adaptive icon + splash) via `flutter_launcher_icons`/`flutter_native_splash`,
       assets em `assets/icon/`. Validado no emulador (launcher e splash com a cara do app antigo)
 - [ ] Revisão de acessibilidade (além do ícone+texto já feito no destaque melhor/pior)
-- [ ] Testes em dispositivos reais Android e iOS (iOS depende de Mac — ver
-      `03-non-functional.md`)
+- [ ] Testes em dispositivo Android real — você não tem device físico; plano: gerar um `.apk`
+      de release e compartilhar direto com um amigo pra instalar (não depende da conta do Play
+      Console). Quando a conta for aprovada, dá pra migrar pra track de teste interno
+- [ ] Testes em dispositivo iOS real — **depende de Mac**, que você não tem. Alternativas sem
+      possuir um Mac fisicamente: alugar Mac na nuvem (ex: MacinCloud), ou usar CI com runner
+      macOS (ex: Codemagic, feito pra Flutter, plano grátis generoso) pra compilar/assinar/subir
+      pro TestFlight — ainda exige conta Apple Developer (US$ 99/ano)
 
 ## Fase 4 — Publicação
 - [x] Decidido (2026-08-03): não tentar recuperar a conta antiga "5club" (perfil e apps
