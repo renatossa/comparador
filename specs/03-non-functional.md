@@ -36,9 +36,9 @@
   só o símbolo da moeda é manual
 
 ## Publicação
-- ⚠️ **LEMBRETE PARA A FASE 4**: o app ID atual usado no projeto (`com.rodenapps.comparador`
-  no legado) está registrado sob a conta de um amigo, não da própria autora. Antes de publicar
-  nas lojas, será necessário criar um bundle ID/app ID próprio e migrar para ele. Não usar o ID
-  antigo na publicação final.
+- ✅ App ID próprio migrado em 2026-08-04: `com.renatossa.comparador` (Android
+  `namespace`/`applicationId` em `android/app/build.gradle.kts` + iOS
+  `PRODUCT_BUNDLE_IDENTIFIER`). Não usar mais o antigo `com.example.comparador` (placeholder
+  do scaffold) nem `com.rodenapps.comparador` (legado, conta de um amigo)
 - ✅ Ícone e splash screen: gerados a partir da marca do app legado (ver Fase 3 em
   `04-migration-plan.md`). Screenshots de loja ainda a produzir na Fase 4

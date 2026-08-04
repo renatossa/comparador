@@ -39,9 +39,12 @@ Atualize a spec como parte do PR — specs e código evoluem juntos. Nunca deixe
 divergir silenciosamente do que está documentado.
 
 ## Lembretes específicos deste projeto
-- ⚠️ O app ID/bundle ID usado durante o desenvolvimento **não é o definitivo** — está sob a
-  conta de um amigo. Antes de qualquer build de release para as lojas, avisar o usuário para
-  criar e migrar para um app ID próprio (ver `specs/03-non-functional.md`)
+- ✅ App ID definitivo: `com.renatossa.comparador` (migrado em 2026-08-04, conta própria e
+  verificada no Play Console — não usar mais `com.example.comparador` nem o antigo
+  `com.rodenapps.comparador` do legado, que estava sob conta de amigo)
+- Chave de assinatura de release (`android/app/upload-keystore.jks` +
+  `android/key.properties`) fica fora do git (gitignored) — nunca tente commitar nem recriar
+  sem confirmar com o usuário; perder esse arquivo compromete updates futuros na Play Store
 - RN06 (adicionar itens) é **sem limite**, mantido fiel ao app legado
 - RN09 (remover item individual) é uma feature **nova**, que não existia no app original
 
