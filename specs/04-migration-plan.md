@@ -78,8 +78,13 @@ apps em paralelo — é uma reescrita, não uma migração incremental de sistem
       (`.aab`, formato que a Play Store exige pro upload)
 - [ ] Build de release iOS (App Store) — depende de Mac, ver `03-non-functional.md`
 - [ ] Upload do primeiro `.aab` no Play Console (track de teste interno ou produção)
-- [ ] Ficha da loja (descrição — reaproveitar/adaptar `textos/descricao.txt` do legado, ver nota
-      em `00-overview.md` —, screenshots, política de privacidade se necessário)
+- [x] Textos da ficha da loja (descrição curta/completa) redigidos em `docs/loja-descricao.md`,
+      adaptados de `textos/descricao.txt` do legado
+- [x] Política de privacidade escrita (`docs/privacidade.html`) — o app não coleta nenhum dado
+- [ ] Ativar GitHub Pages no repo (Settings → Pages → source: branch `main`, pasta `/docs`) pra
+      publicar a política de privacidade numa URL pública (necessária pro Play Console)
+- [ ] Criação do app no Play Console (nome, ficha da loja, ícone, screenshots)
+- [ ] Upload do primeiro `.aab` no Play Console (track de teste interno ou produção)
 
 ## Rastreabilidade
 Cada PR de implementação deve referenciar a spec (`02-features/*.md`) e as regras de negócio
