@@ -32,14 +32,16 @@ com stack moderna, UI atualizada e publicação nas lojas Android (Google Play) 
 ## Fora de escopo (por ora)
 - Contas de usuário / sincronização em nuvem
 - Histórico de comparações passadas
-- Compartilhamento de comparação
+- Compartilhamento de comparação (ideia detalhada em `05-ideias-futuras.md`)
 - Leitura de preço via código de barras/OCR
+- Conversão de unidade entre itens (ideia detalhada em `05-ideias-futuras.md`)
 
 ## Como usar esta pasta de specs
 1. `01-domain-model.md` — entidades e regras de negócio
 2. `02-features/` — uma spec por funcionalidade, com critérios de aceite testáveis
 3. `03-non-functional.md` — performance, offline, compatibilidade
 4. `04-migration-plan.md` — fases de execução
-5. `../adr/` — decisões de arquitetura e por quê foram tomadas
+5. `05-ideias-futuras.md` — backlog de ideias pra versões futuras, sem compromisso
+6. `../adr/` — decisões de arquitetura e por quê foram tomadas
 
 Toda implementação nova deve referenciar a spec correspondente no PR.

@@ -14,6 +14,7 @@ Architecture Decision Records.
 - [`specs/02-features/`](./specs/02-features) — specs de cada funcionalidade com critérios de aceite
 - [`specs/03-non-functional.md`](./specs/03-non-functional.md) — requisitos não-funcionais
 - [`specs/04-migration-plan.md`](./specs/04-migration-plan.md) — fases do projeto
+- [`specs/05-ideias-futuras.md`](./specs/05-ideias-futuras.md) — backlog de ideias futuras
 - [`adr/`](./adr) — decisões de arquitetura
 
 ## Stack
