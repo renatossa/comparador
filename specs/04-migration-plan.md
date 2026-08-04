@@ -65,9 +65,8 @@ apps em paralelo — é uma reescrita, não uma migração incremental de sistem
       independente**, tipo "Pessoal" (não "Organização" — evita a burocracia de D-U-N-S),
       taxa única de US$ 25 + verificação de identidade própria. Fica dono único, sem depender
       de mais ninguém
-- [ ] Registrar a conta nova em play.google.com/console/signup e completar verificação — taxa
-      paga e documentos enviados em 2026-08-03, **aguardando resposta do Google** (verificação
-      de identidade costuma levar de horas a poucos dias)
+- [x] Conta nova registrada em play.google.com/console/signup e **verificação de identidade
+      aprovada** pelo Google (2026-08-04)
 - [ ] Build de release Android (Play Store) + iOS (App Store)
 - [ ] App ID/bundle ID próprio (ver aviso em `03-non-functional.md` — não usar o antigo, que
       está sob conta de amigo)
