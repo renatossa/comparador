@@ -50,9 +50,12 @@ apps em paralelo — é uma reescrita, não uma migração incremental de sistem
       (Android adaptive icon + splash) via `flutter_launcher_icons`/`flutter_native_splash`,
       assets em `assets/icon/`. Validado no emulador (launcher e splash com a cara do app antigo)
 - [ ] Revisão de acessibilidade (além do ícone+texto já feito no destaque melhor/pior)
-- [ ] Testes em dispositivo Android real — você não tem device físico; plano: gerar um `.apk`
-      de release e compartilhar direto com um amigo pra instalar (não depende da conta do Play
-      Console). Quando a conta for aprovada, dá pra migrar pra track de teste interno
+- [x] Testes em dispositivo Android real (2026-08-04): validado de duas formas —
+      1) publicado na track de teste interno do Play Console, instalado via link de opt-in;
+      2) `.apk` de release instalado direto num Xiaomi Redmi Note 9S conectado via USB (achado
+      no processo: MIUI bloqueia `adb install` sem SIM ativo pra liberar "Instalar via USB" —
+      contornado copiando o `.apk` pro celular com `adb push` e instalando pelo Gerenciador de
+      Arquivos, que usa outra permissão)
 - [ ] Testes em dispositivo iOS real — **depende de Mac**, que você não tem. Alternativas sem
       possuir um Mac fisicamente: alugar Mac na nuvem (ex: MacinCloud), ou usar CI com runner
       macOS (ex: Codemagic, feito pra Flutter, plano grátis generoso) pra compilar/assinar/subir
