@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:comparador/models/comparacao_model.dart';
+import 'package:comparador/models/moeda.dart';
 import 'package:comparador/screens/comparacao_screen.dart';
 
 Future<void> _pumpApp(WidgetTester tester, ComparacaoModel model) async {
@@ -134,5 +135,70 @@ void main() {
 
     final campo = tester.widget<TextField>(campos.at(0));
     expect(campo.controller!.text, isNot(contains('-')));
+  });
+
+  group('RN11 — seleção inicial de moeda', () {
+    testWidgets('primeira abertura exibe diálogo obrigatório de moeda', (
+      tester,
+    ) async {
+      final model = ComparacaoModel();
+      await model.carregar();
+
+      await _pumpApp(tester, model);
+      await tester.pump();
+
+      expect(find.text('Escolha sua moeda'), findsOneWidget);
+    });
+
+    testWidgets('escolher moeda no diálogo inicial salva e libera a tela', (
+      tester,
+    ) async {
+      final model = ComparacaoModel();
+      await model.carregar();
+
+      await _pumpApp(tester, model);
+      await tester.pump();
+
+      await tester.tap(find.text('€  Euro'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Escolha sua moeda'), findsNothing);
+      expect(model.moeda, Moeda.euro);
+      expect(model.precisaSelecionarMoedaInicial, isFalse);
+    });
+
+    testWidgets('não pergunta de novo quando já existe moeda salva', (
+      tester,
+    ) async {
+      final anterior = ComparacaoModel();
+      anterior.selecionarMoeda(Moeda.dolar);
+
+      final model = ComparacaoModel();
+      await model.carregar();
+
+      await _pumpApp(tester, model);
+      await tester.pump();
+
+      expect(find.text('Escolha sua moeda'), findsNothing);
+    });
+
+    testWidgets(
+      'diálogo inicial não fecha ao tentar voltar sem escolher uma moeda',
+      (tester) async {
+        final model = ComparacaoModel();
+        await model.carregar();
+
+        await _pumpApp(tester, model);
+        await tester.pump();
+
+        expect(find.text('Escolha sua moeda'), findsOneWidget);
+
+        await tester.binding.handlePopRoute();
+        await tester.pump();
+
+        expect(find.text('Escolha sua moeda'), findsOneWidget);
+        expect(model.precisaSelecionarMoedaInicial, isTrue);
+      },
+    );
   });
 }

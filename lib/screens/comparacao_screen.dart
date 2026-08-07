@@ -4,9 +4,35 @@ import 'package:provider/provider.dart';
 import '../models/comparacao_model.dart';
 import '../models/moeda.dart';
 import '../widgets/item_card.dart';
+import '../widgets/selecao_moeda_inicial_dialog.dart';
 
-class ComparacaoScreen extends StatelessWidget {
+class ComparacaoScreen extends StatefulWidget {
   const ComparacaoScreen({super.key});
+
+  @override
+  State<ComparacaoScreen> createState() => _ComparacaoScreenState();
+}
+
+class _ComparacaoScreenState extends State<ComparacaoScreen> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => _perguntarMoedaInicialSeNecessario(),
+    );
+  }
+
+  void _perguntarMoedaInicialSeNecessario() {
+    final model = context.read<ComparacaoModel>();
+    if (!model.precisaSelecionarMoedaInicial) return;
+
+    showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (_) =>
+          SelecaoMoedaInicialDialog(onSelecionada: model.selecionarMoeda),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
