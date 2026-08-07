@@ -1,7 +1,7 @@
 enum Moeda {
-  real('R\$', 'Real (Brasil)'),
+  real('R\$', 'Real'),
   euro('€', 'Euro'),
-  dolar('\$', 'Dólar (EUA)');
+  dolar('\$', 'Dólar');
 
   const Moeda(this.simbolo, this.nome);
 
