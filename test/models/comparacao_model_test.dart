@@ -206,4 +206,34 @@ void main() {
       expect(novoModel.moeda, Moeda.euro);
     });
   });
+
+  group('RN11 — seleção inicial de moeda', () {
+    test('primeira abertura (sem moeda salva) sinaliza necessidade de perguntar', () async {
+      final model = ComparacaoModel();
+      await model.carregar();
+
+      expect(model.precisaSelecionarMoedaInicial, isTrue);
+    });
+
+    test('abertura com moeda já salva não sinaliza necessidade de perguntar', () async {
+      final model = ComparacaoModel();
+      model.selecionarMoeda(Moeda.euro);
+
+      final novoModel = ComparacaoModel();
+      await novoModel.carregar();
+
+      expect(novoModel.precisaSelecionarMoedaInicial, isFalse);
+    });
+
+    test('selecionar moeda limpa a sinalização de pergunta inicial', () async {
+      final model = ComparacaoModel();
+      await model.carregar();
+      expect(model.precisaSelecionarMoedaInicial, isTrue);
+
+      model.selecionarMoeda(Moeda.dolar);
+
+      expect(model.precisaSelecionarMoedaInicial, isFalse);
+      expect(model.moeda, Moeda.dolar);
+    });
+  });
 }

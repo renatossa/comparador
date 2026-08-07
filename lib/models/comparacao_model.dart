@@ -16,8 +16,13 @@ class ComparacaoModel extends ChangeNotifier {
   final List<Item> itens = [];
   Moeda moeda = Moeda.real;
 
+  /// RN11: verdadeiro quando não havia moeda salva ao carregar, ou seja,
+  /// é a primeira abertura do app — a tela deve perguntar a moeda antes de
+  /// exibir a comparação.
+  bool precisaSelecionarMoedaInicial = false;
+
   /// Carrega os itens e a moeda persistidos (RN08). Se não houver nada
-  /// salvo, mantém o estado inicial (RN05) e a moeda padrão.
+  /// salvo, mantém o estado inicial (RN05), a moeda padrão e sinaliza RN11.
   Future<void> carregar() async {
     final salvos = await _storage.carregar();
     if (salvos.isNotEmpty) {
@@ -29,6 +34,8 @@ class ComparacaoModel extends ChangeNotifier {
     final moedaSalva = await _storage.carregarMoeda();
     if (moedaSalva != null) {
       moeda = moedaSalva;
+    } else {
+      precisaSelecionarMoedaInicial = true;
     }
 
     _recalcularDestaques(persistir: false);
@@ -36,6 +43,7 @@ class ComparacaoModel extends ChangeNotifier {
 
   void selecionarMoeda(Moeda novaMoeda) {
     moeda = novaMoeda;
+    precisaSelecionarMoedaInicial = false;
     notifyListeners();
     unawaited(_storage.salvarMoeda(moeda));
   }

@@ -39,9 +39,12 @@ apps em paralelo — é uma reescrita, não uma migração incremental de sistem
       decimal (`,`/`.`), seletor de moeda (R$/€/$) e teclado físico funcionando
 - [x] Seletor manual de moeda (R$ padrão, € em seguida) — substituiu a ideia inicial de inferir
       a moeda pelo locale do idioma (não confiável: idioma≠país, ver `03-non-functional.md`)
-- [ ] RN11 — pergunta de moeda inicial no primeiro uso, salva localmente pra não perguntar de
-      novo (spec em `02-features/selecionar-moeda-inicial.md`, decisões já resolvidas — falta
-      implementar: diálogo obrigatório, sem opção de pular)
+- [x] RN11 — pergunta de moeda inicial no primeiro uso, salva localmente pra não perguntar de
+      novo (spec em `02-features/selecionar-moeda-inicial.md`): `ComparacaoModel` sinaliza
+      `precisaSelecionarMoedaInicial` quando `carregar()` não encontra moeda salva;
+      `ComparacaoScreen` exibe `SelecaoMoedaInicialDialog` (não dispensável — `PopScope`
+      bloqueando back, `barrierDismissible: false`, sem botão de pular) antes da tela de
+      comparação nesse caso
 
 ## Fase 3 — Polimento
 - [x] Identidade visual em código: paleta com semente azul do ícone legado (`#218ABC`,
