@@ -17,6 +17,7 @@
 | Campo  | Tipo         | Descrição                                    |
 |--------|--------------|------------------------------------------------|
 | itens  | List<Item>   | Lista de itens sendo comparados (mín. 3 ao iniciar) |
+| moeda  | enum (R$ \| € \| US$) | Moeda de referência usada para exibir preço/valor por unidade — ver RN11 |
 
 ## Regras de negócio (extraídas do comportamento legado)
 
@@ -71,6 +72,13 @@ a reescrita — ver `02-features/remover-item.md`).
 **RN10 — Validação de valores negativos (NOVO, não existia no legado)**
 Quantidade e preço não podem ser negativos. O app deve impedir/rejeitar a entrada de valores
 negativos nesses campos.
+
+**RN11 — Seleção inicial de moeda (NOVO, não existia no legado)**
+Na primeira abertura do app (quando ainda não há moeda salva localmente), o app pergunta ao
+usuário qual moeda de referência usar antes de exibir a tela de comparação. A escolha é
+persistida (RN08) e não é perguntada novamente nas aberturas seguintes — ver
+`02-features/selecionar-moeda-inicial.md`. O seletor de moeda que já existe na AppBar (ver
+`03-non-functional.md`) continua disponível pra trocar de moeda a qualquer momento depois.
 
 ## Decisões confirmadas
 - ✅ RN06: sem limite de itens adicionados, mantido como no legado
