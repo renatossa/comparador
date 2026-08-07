@@ -50,9 +50,9 @@ Cenário: Trocar de moeda depois, via seletor existente
 - Usuário fecha/mata o app no meio da pergunta inicial, sem escolher nada → nenhuma moeda foi
   salva, então a pergunta aparece de novo na próxima abertura (comportamento correto por
   consequência do mecanismo de persistência, não precisa de tratamento especial)
-- [DECISÃO PENDENTE: existe alguma forma de "pular"/fechar a pergunta sem escolher, caindo num
-  padrão (R$)? Ou o usuário é obrigado a escolher uma opção pra prosseguir? Afeta diretamente
-  o desenho da tela/diálogo]
+- ✅ Decidido (2026-08-04): não existe forma de pular/fechar a pergunta sem escolher. O usuário
+  é obrigado a tocar numa das 3 opções (R$/€/US$) pra prosseguir — sem botão de "agora não",
+  sem fechar tocando fora do diálogo
 
 ## Regra de negócio relacionada
 RN11 (`01-domain-model.md`)

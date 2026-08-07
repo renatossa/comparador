@@ -40,8 +40,8 @@ apps em paralelo — é uma reescrita, não uma migração incremental de sistem
 - [x] Seletor manual de moeda (R$ padrão, € em seguida) — substituiu a ideia inicial de inferir
       a moeda pelo locale do idioma (não confiável: idioma≠país, ver `03-non-functional.md`)
 - [ ] RN11 — pergunta de moeda inicial no primeiro uso, salva localmente pra não perguntar de
-      novo (spec adicionada em 2026-08-04, ver `02-features/selecionar-moeda-inicial.md` —
-      ainda não implementada, tem uma decisão pendente marcada na spec)
+      novo (spec em `02-features/selecionar-moeda-inicial.md`, decisões já resolvidas — falta
+      implementar: diálogo obrigatório, sem opção de pular)
 
 ## Fase 3 — Polimento
 - [x] Identidade visual em código: paleta com semente azul do ícone legado (`#218ABC`,
