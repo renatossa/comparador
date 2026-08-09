@@ -86,14 +86,25 @@ apps em paralelo — é uma reescrita, não uma migração incremental de sistem
       --release` (assinatura conferida com `apksigner`) e `flutter build appbundle --release`
       (`.aab`, formato que a Play Store exige pro upload)
 - [ ] Build de release iOS (App Store) — depende de Mac, ver `03-non-functional.md`
-- [ ] Upload do primeiro `.aab` no Play Console (track de teste interno ou produção)
 - [x] Textos da ficha da loja (descrição curta/completa) redigidos em `docs/loja-descricao.md`,
-      adaptados de `textos/descricao.txt` do legado
-- [x] Política de privacidade escrita (`docs/privacidade.html`) — o app não coleta nenhum dado
-- [ ] Ativar GitHub Pages no repo (Settings → Pages → source: branch `main`, pasta `/docs`) pra
-      publicar a política de privacidade numa URL pública (necessária pro Play Console)
-- [ ] Criação do app no Play Console (nome, ficha da loja, ícone, screenshots)
-- [ ] Upload do primeiro `.aab` no Play Console (track de teste interno ou produção)
+      adaptados de `textos/descricao.txt` do legado; traduzidos pra pt-PT e en-US/en-CA/en-AU
+      (mesmo texto nos três, sem divergência de grafia regional)
+- [x] Política de privacidade escrita (`docs/privacidade.html`) — o app não coleta nenhum dado.
+      Repo tornado público (decisão consciente, sem segredos no código) e GitHub Pages ativado
+      pra publicar em `https://renatossa.github.io/comparador/privacidade.html`
+- [x] Recursos gráficos da ficha: ícone 512x512, gráfico de destaque 1024x500 (reaproveitado do
+      artwork do legado) e screenshots (celular, tablet 10", splash) — todos em `docs/`
+- [x] App criado no Play Console, ficha da loja preenchida (pt-BR, pt-PT, en-US/CA/AU),
+      categoria "Compras", declaração de ID de publicidade = Não (sem SDKs de anúncio/tracking)
+- [x] Upload do `.aab` (v1.0.1+2) no teste interno — testado em dispositivo real
+- [x] Teste fechado configurado (países, testadores) e a mesma versão (v1.0.1+2) promovida do
+      teste interno via "Adicionar da biblioteca", com notas de versão multi-idioma
+- [x] Versão enviada pro Google Play pra revisão (2026-08-07)
+- [ ] ⏳ **Aguardando**: requisito de conta pessoal nova — teste fechado precisa de **12
+      testadores optados por 14 dias consecutivos** antes de poder solicitar acesso à produção
+      (ver guia oficial do Google). Ainda faltam recrutar testadores suficientes — só tem o
+      testador do teste interno confirmado até agora
+- [ ] Depois dos 14 dias: solicitar acesso à produção (revisão do Google leva até 7 dias)
 
 ## Rastreabilidade
 Cada PR de implementação deve referenciar a spec (`02-features/*.md`) e as regras de negócio
