@@ -110,6 +110,12 @@ apps em paralelo — é uma reescrita, não uma migração incremental de sistem
       testador do teste interno confirmado até agora
 - [ ] Depois dos 14 dias: solicitar acesso à produção (revisão do Google leva até 7 dias)
 
+## Bugs conhecidos
+- [ ] 🐛 Valor por unidade exibido com 4 casas decimais, deveria ser 2 (registrado em
+      2026-08-10, ver edge case em `02-features/comparar-precos.md`). Corrigir
+      `decimalDigits: 4` → `2` em `lib/widgets/item_card.dart`, e ajustar o teste que já
+      existir cobrindo essa formatação
+
 ## Rastreabilidade
 Cada PR de implementação deve referenciar a spec (`02-features/*.md`) e as regras de negócio
 (`RNxx`) que está implementando.

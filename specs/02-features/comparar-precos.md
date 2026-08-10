@@ -67,7 +67,10 @@ Cenário: Impedir valor negativo
 - ✅ Apenas 1 item preenchido: não exibe "pior" nem "melhor", fica neutro (RN03A, decisão
   confirmada em 2026-08-03 — diverge do legado de propósito, ver nota em `01-domain-model.md`)
 - Todos os itens com o mesmo valor por unidade
-- Valores decimais com muitas casas (o legado usava máscara de 4 casas)
+- 🐛 **Bug aberto (registrado em 2026-08-10)**: o valor por unidade exibido deve ter **2 casas
+  decimais**. Implementação atual usa 4 (`decimalDigits: 4` em `ItemCard`, copiado do legado
+  que usava máscara de 4 casas) — precisa corrigir pra 2. Ver item de bug em
+  `04-migration-plan.md`
 - ✅ Separador decimal: os campos de quantidade/preço aceitam tanto `,` quanto `.` como
   separador decimal (varia por teclado/região), tratados como equivalentes; apenas um
   separador é aceito por valor digitado
