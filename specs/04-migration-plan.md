@@ -76,8 +76,9 @@ apps em paralelo — é uma reescrita, não uma migração incremental de sistem
       de mais ninguém
 - [x] Conta nova registrada em play.google.com/console/signup e **verificação de identidade
       aprovada** pelo Google (2026-08-04)
-- [x] App ID/bundle ID próprio: `com.renatossa.comparador` (Android + iOS, ver
-      `03-non-functional.md`)
+- [x] App ID/bundle ID próprio: `com.renatossa.comparador` no Android. **iOS é exceção**:
+      `com.rodenapps.comparador` (ID do legado) — publicação em conjunto com o colega que já
+      tinha essa ficha na App Store, ver nota em `03-non-functional.md`
 - [x] Chave de assinatura de release gerada (`android/app/upload-keystore.jks`, alias
       `upload`, válida até 2053) e configurada em `android/app/build.gradle.kts` via
       `android/key.properties` (fora do git). ⚠️ **fazer backup do `.jks` + `key.properties`
@@ -85,7 +86,10 @@ apps em paralelo — é uma reescrita, não uma migração incremental de sistem
 - [x] Primeiro build de release Android gerado e validado no emulador: `flutter build apk
       --release` (assinatura conferida com `apksigner`) e `flutter build appbundle --release`
       (`.aab`, formato que a Play Store exige pro upload)
-- [ ] Build de release iOS (App Store) — depende de Mac, ver `03-non-functional.md`
+- [x] Bundle ID do iOS ajustado pra `com.rodenapps.comparador` (`ios/Runner.xcodeproj`),
+      confirmado com o colega que ele mantém acesso ativo à conta Apple Developer (2026-08-10)
+- [ ] Build de release iOS (App Store) — depende de Mac, feito pelo colega a partir do repo
+      (público) no GitHub; ver guia de publicação combinado na conversa
 - [x] Textos da ficha da loja (descrição curta/completa) redigidos em `docs/loja-descricao.md`,
       adaptados de `textos/descricao.txt` do legado; traduzidos pra pt-PT e en-US/en-CA/en-AU
       (mesmo texto nos três, sem divergência de grafia regional)

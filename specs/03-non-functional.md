@@ -36,9 +36,17 @@
   só o símbolo da moeda é manual
 
 ## Publicação
-- ✅ App ID próprio migrado em 2026-08-04: `com.renatossa.comparador` (Android
-  `namespace`/`applicationId` em `android/app/build.gradle.kts` + iOS
-  `PRODUCT_BUNDLE_IDENTIFIER`). Não usar mais o antigo `com.example.comparador` (placeholder
-  do scaffold) nem `com.rodenapps.comparador` (legado, conta de um amigo)
+- ✅ App ID próprio migrado em 2026-08-04: `com.renatossa.comparador` — Android
+  (`namespace`/`applicationId` em `android/app/build.gradle.kts`). Não usar mais o antigo
+  `com.example.comparador` (placeholder do scaffold)
+- ⚠️ **Exceção deliberada pro iOS (decidido em 2026-08-10)**: o bundle ID do iOS **não**
+  segue a regra acima — voltou a ser `com.rodenapps.comparador` (o ID do legado, confirmado em
+  `config.xml` do zip do app antigo, ver nota em `00-overview.md`). Motivo: a publicação iOS é
+  feita em conjunto com o colega que já tinha essa ficha publicada na App Store havia anos,
+  reaproveitando a conta Apple Developer e o histórico dele (confirmado que ele ainda tem
+  acesso ativo à conta). Diferente do Android, aqui não há independência de conta — decisão
+  consciente, não confundir com um app ID esquecido/desatualizado. Android e iOS passam a ter
+  bundle IDs diferentes entre si, o que não é problema técnico (namespaces independentes por
+  loja)
 - ✅ Ícone e splash screen: gerados a partir da marca do app legado (ver Fase 3 em
   `04-migration-plan.md`). Screenshots de loja ainda a produzir na Fase 4
