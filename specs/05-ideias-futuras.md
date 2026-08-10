@@ -25,3 +25,29 @@ o resultado da comparação (como imagem ou texto) pra compartilhar via apps de 
 Baixo esforço de implementação relativo ao valor (potencial de aquisição orgânica de usuários),
 mas ainda sem desenho de UX definido (o que exatamente aparece no compartilhamento? só o item
 "melhor", ou a lista inteira?).
+
+## Preencher quantidade via leitura de código de barras
+
+Já listado como fora de escopo em `00-overview.md` ("leitura de preço via código de
+barras/OCR"), detalhando aqui a ideia depois de avaliar a viabilidade (discutido em
+2026-08-10): usar a câmera pra ler o código de barras do produto e preencher o campo
+"Quantidade" automaticamente, usando a API gratuita e aberta do
+[Open Food Facts](https://world.openfoodfacts.org/) (sem chave de autenticação pra leitura).
+
+**Importante — o que essa integração resolve e o que não resolve**:
+- ✅ Resolve: preencher a quantidade/tamanho da embalagem (g/ml/kg/L) automaticamente, evitando
+  o usuário ter que procurar e digitar essa informação do rótulo
+- ❌ Não resolve: o **preço** continua sendo digitado manualmente — nenhuma API global sabe o
+  preço praticado numa loja específica num dia específico
+
+**Cobertura por região** (relevante pro público-alvo do app, Brasil e Portugal): a base é
+colaborativa/crowdsourced, então a cobertura varia — boa pra marcas grandes/multinacionais nos
+dois países, mas fraca pra produtos regionais/locais (Brasil por ser mercado grande e
+fragmentado; Portugal por ser mercado pequeno, ainda que se beneficie de produtos
+pan-europeus já cadastrados por outros países da UE). Consequência de design: a busca por
+código de barras precisa ser tratada como um *assist* opcional com fallback gracioso pro
+preenchimento manual quando o código não for encontrado — nunca uma dependência obrigatória.
+
+**Direção técnica proposta**: pacote `mobile_scanner` (ou similar) pra leitura de código de
+barras via câmera no Flutter, chamando a API REST do Open Food Facts (retorna JSON) pra
+resolver o código pro tamanho da embalagem.
