@@ -21,4 +21,6 @@ Architecture Decision Records.
 Flutter (ver [`adr/0001-escolha-stack.md`](./adr/0001-escolha-stack.md) para a justificativa)
 
 ## Status
-✅ Fase 0 concluída — pronto para iniciar Fase 1 (ver `04-migration-plan.md`)
+🚧 Fase 4 (Publicação) em andamento — Android em teste fechado no Google Play, aguardando
+requisito de 12 testadores por 14 dias pra liberar acesso à produção. iOS ainda pendente
+(depende de Mac). Ver `04-migration-plan.md` pro detalhe de cada fase.
