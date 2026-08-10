@@ -77,7 +77,7 @@ class _ItemCardState extends State<ItemCard> {
     final formato = NumberFormat.currency(
       locale: Localizations.localeOf(context).toString(),
       symbol: widget.moeda.simbolo,
-      decimalDigits: 4,
+      decimalDigits: 2,
     );
 
     return Card(

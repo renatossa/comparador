@@ -44,18 +44,19 @@ void main() {
   testWidgets('cenário: comparar dois itens simples', (tester) async {
     await _pumpApp(tester, ComparacaoModel());
 
-    await _preencherItem(tester, 0, 500, 10);
-    await _preencherItem(tester, 1, 1000, 18);
+    await _preencherItem(tester, 0, 100, 10); // 0.10 — pior
+    await _preencherItem(tester, 1, 1000, 10); // 0.01 — melhor
 
     expect(find.text('Melhor opção'), findsOneWidget);
     expect(find.text('Pior opção'), findsOneWidget);
     // O símbolo de moeda e o separador decimal variam por locale (ver
-    // 03-non-functional.md); só validamos que o valor calculado aparece.
+    // 03-non-functional.md); só validamos que o valor calculado aparece,
+    // formatado com 2 casas decimais.
     expect(
       find.byWidgetPredicate(
         (widget) =>
             widget is Text &&
-            (widget.data?.contains('018') ?? false) &&
+            (widget.data?.contains('01') ?? false) &&
             (widget.data?.contains('unidade') ?? false),
       ),
       findsOneWidget,
