@@ -34,6 +34,8 @@ com stack moderna, UI atualizada e publicação nas lojas Android (Google Play) 
 - Histórico de comparações passadas
 - Compartilhamento de comparação (ideia detalhada em `05-ideias-futuras.md`)
 - Leitura de preço via código de barras/OCR
+- Importar item (nome/preço/unidade) a partir de print de app de mercado (ideia detalhada em
+  `05-ideias-futuras.md`)
 - Conversão de unidade entre itens (ideia detalhada em `05-ideias-futuras.md`)
 
 ## Como usar esta pasta de specs
