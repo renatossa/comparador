@@ -6,6 +6,8 @@ import '../models/moeda.dart';
 import '../widgets/item_card.dart';
 import '../widgets/selecao_moeda_inicial_dialog.dart';
 
+const _espacoParaBotaoAdicionar = 88.0;
+
 class ComparacaoScreen extends StatefulWidget {
   const ComparacaoScreen({super.key});
 
@@ -53,7 +55,13 @@ class _ComparacaoScreenState extends State<ComparacaoScreen> {
               child: const Icon(Icons.check, color: Colors.white, size: 16),
             ),
             const SizedBox(width: 10),
-            const Text('Comparador de Preços'),
+            const Expanded(
+              child: Text(
+                'Comparador de Preços',
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
+              ),
+            ),
           ],
         ),
         actions: [
@@ -103,7 +111,14 @@ class _ComparacaoScreenState extends State<ComparacaoScreen> {
           }
 
           return ListView.builder(
-            padding: const EdgeInsets.all(12),
+            padding: EdgeInsets.fromLTRB(
+              12,
+              12,
+              12,
+              12 +
+                  MediaQuery.paddingOf(context).bottom +
+                  _espacoParaBotaoAdicionar,
+            ),
             itemCount: model.itens.length,
             itemBuilder: (context, index) {
               final item = model.itens[index];

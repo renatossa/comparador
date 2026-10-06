@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:comparador/models/comparacao_model.dart';
 import 'package:comparador/models/moeda.dart';
 import 'package:comparador/screens/comparacao_screen.dart';
+import 'package:comparador/widgets/item_card.dart';
 
 Future<void> _pumpApp(WidgetTester tester, ComparacaoModel model) async {
   await tester.pumpWidget(
@@ -202,4 +203,26 @@ void main() {
       },
     );
   });
+
+  testWidgets(
+    'último item fica acima da barra de navegação e do botão de adicionar',
+    (tester) async {
+      tester.view.physicalSize = const Size(400, 800);
+      tester.view.devicePixelRatio = 1;
+      tester.view.padding = const FakeViewPadding(bottom: 48);
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      addTearDown(tester.view.resetPadding);
+
+      final model = ComparacaoModel()..adicionarItem();
+      await _pumpApp(tester, model);
+      await tester.pumpAndSettle();
+
+      await tester.drag(find.byType(ListView), const Offset(0, -3000));
+      await tester.pumpAndSettle();
+
+      final ultimoCard = tester.getRect(find.byType(ItemCard).last);
+      expect(ultimoCard.bottom, lessThanOrEqualTo(800 - 48 - 88));
+    },
+  );
 }

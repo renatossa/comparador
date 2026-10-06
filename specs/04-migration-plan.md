@@ -104,11 +104,17 @@ apps em paralelo — é uma reescrita, não uma migração incremental de sistem
 - [x] Teste fechado configurado (países, testadores) e a mesma versão (v1.0.1+2) promovida do
       teste interno via "Adicionar da biblioteca", com notas de versão multi-idioma
 - [x] Versão enviada pro Google Play pra revisão (2026-08-07)
-- [ ] ⏳ **Aguardando**: requisito de conta pessoal nova — teste fechado precisa de **12
-      testadores optados por 14 dias consecutivos** antes de poder solicitar acesso à produção
-      (ver guia oficial do Google). Ainda faltam recrutar testadores suficientes — só tem o
-      testador do teste interno confirmado até agora
-- [ ] Depois dos 14 dias: solicitar acesso à produção (revisão do Google leva até 7 dias)
+- [x] Solicitação de acesso à produção enviada — **recusada** na revisão de sábado (≈03/10/2026):
+      "precisa de mais testes". Motivos informados pelo Google: testadores pouco engajados no
+      teste fechado e falta de boas práticas (coletar e agir sobre feedback via atualizações)
+      (guia: https://support.google.com/googleplay/android-developer/answer/14151465)
+- [ ] Engajar os 12 testadores do teste fechado: uso real do app + feedback (canal combinado
+      com eles). Requisito: **12 testadores optados por 14 dias consecutivos a partir da data
+      da revisão** — em 06/10/2026 o painel marcava 3 dias (faltam ~11)
+- [ ] Publicar atualização no teste fechado com as melhorias vindas do feedback (inclui o fix
+      de 2 casas decimais de 10/08 — confirmar que está no build em teste)
+- [ ] Registrar o feedback recebido e as melhorias feitas (exigido pelas boas práticas)
+- [ ] Depois dos 14 dias contínuos: solicitar acesso à produção novamente (revisão leva até 7 dias)
 
 ## Bugs conhecidos
 - [x] 🐛 Valor por unidade exibido com 4 casas decimais, deveria ser 2 — corrigido em
