@@ -37,10 +37,10 @@ class _ItemCardState extends State<ItemCard> {
   void initState() {
     super.initState();
     _quantidadeController = TextEditingController(
-      text: widget.item.quantidade?.toString() ?? '',
+      text: _textoDoCampo(widget.item.quantidade),
     );
     _precoController = TextEditingController(
-      text: widget.item.preco?.toString() ?? '',
+      text: _textoDoCampo(widget.item.preco),
     );
   }
 
@@ -153,6 +153,13 @@ class _ItemCardState extends State<ItemCard> {
       ),
     );
   }
+}
+
+String _textoDoCampo(double? valor) {
+  if (valor == null) return '';
+  return valor == valor.truncateToDouble()
+      ? valor.toInt().toString()
+      : valor.toString();
 }
 
 /// Aceita dígitos com no máximo um separador decimal (`,` ou `.`), tratados
