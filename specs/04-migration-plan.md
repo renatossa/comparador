@@ -117,8 +117,8 @@ apps em paralelo — é uma reescrita, não uma migração incremental de sistem
 - [x] Correções de feedback do teste fechado no código: barra de navegação (#2), título (#4),
       decimais (#3) e ".0" (#5)
 - [x] Build `2.0.0+3` gerado (`flutter build appbundle --release`)
-- [ ] Subir `2.0.0+3` na faixa de teste fechado do Play Console (notas de versão em pt-BR,
-      pt-PT e en-US) e fechar as issues #3 e #5 depois de confirmar no build publicado
+- [x] Subir `2.0.0+3` na faixa de teste fechado do Play Console (notas de versão em pt-BR,
+      pt-PT e en-US) — publicado em 06/10/2026, envio nº 2 (envio nº 1 foi 09/08/2026)
 - [ ] Depois dos 14 dias contínuos: solicitar acesso à produção novamente (revisão leva até 7 dias)
 
 ## Bugs conhecidos
