@@ -104,21 +104,27 @@ apps em paralelo — é uma reescrita, não uma migração incremental de sistem
 - [x] Teste fechado configurado (países, testadores) e a mesma versão (v1.0.1+2) promovida do
       teste interno via "Adicionar da biblioteca", com notas de versão multi-idioma
 - [x] Versão enviada pro Google Play pra revisão (2026-08-07)
-- [x] Solicitação de acesso à produção enviada — **recusada** na revisão de sábado (≈03/10/2026):
+- [x] Solicitação de acesso à produção enviada — **recusada** na revisão de 03/10/2026, 04:03:
       "precisa de mais testes". Motivos informados pelo Google: testadores pouco engajados no
       teste fechado e falta de boas práticas (coletar e agir sobre feedback via atualizações)
       (guia: https://support.google.com/googleplay/android-developer/answer/14151465)
-- [ ] Engajar os 12 testadores do teste fechado: uso real do app + feedback (canal combinado
-      com eles). Requisito: **12 testadores optados por 14 dias consecutivos a partir da data
-      da revisão** — em 06/10/2026 o painel marcava 3 dias (faltam ~11)
-- [ ] Publicar atualização no teste fechado com as melhorias vindas do feedback (inclui o fix
-      de 2 casas decimais de 10/08 — confirmar que está no build em teste)
-- [ ] Registrar o feedback recebido e as melhorias feitas (exigido pelas boas práticas)
 - [x] Correções de feedback do teste fechado no código: barra de navegação (#2), título (#4),
       decimais (#3) e ".0" (#5)
-- [x] Build `2.0.0+3` gerado (`flutter build appbundle --release`)
-- [x] Subir `2.0.0+3` na faixa de teste fechado do Play Console (notas de versão em pt-BR,
-      pt-PT e en-US) — publicado em 06/10/2026, envio nº 2 (envio nº 1 foi 09/08/2026)
+- [x] Build `2.0.0+3` gerado (`flutter build appbundle --release`) e publicado no teste
+      fechado em 06/10/2026 (envio nº 2; envio nº 1 foi 09/08/2026)
+- [x] Canal de feedback configurado no Play Console (email) — gerou um envio de configuração
+      extra (nº 3, 08/10/2026), sem binário novo; confirmado que não afeta a contagem de dias
+      dos testadores (o requisito é sobre eles continuarem optados na faixa, não sobre a versão)
+- [x] Primeira rodada de feedback recebida (06–09/10/2026), 6 avaliações, todas 5 estrelas, sem
+      bug relatado — "ótimo", "ajuda a economizar e escolher os melhores produtos", "simples de
+      entender e intuitivo", "fácil de usar... ajuda bastante na hora de comparar preços", "muito
+      boa e útil pro dia a dia", "app necessário". Nenhuma ação de código necessária; serve de
+      registro de engajamento real dos testadores (boas práticas exigidas pelo Google)
+- [ ] Engajar os 12 testadores do teste fechado continuamente. Requisito: **12 testadores
+      optados por 14 dias consecutivos a partir da data da revisão** — testadores atuais
+      contando desde 08/10/2026 (faltam ~13 dias)
+- [ ] Continuar registrando feedback recebido (issues no GitHub para bugs; aqui no plano para
+      rodadas sem bug, como registro de engajamento)
 - [ ] Depois dos 14 dias contínuos: solicitar acesso à produção novamente (revisão leva até 7 dias)
 
 ## Bugs conhecidos
